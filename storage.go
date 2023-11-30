@@ -45,8 +45,7 @@ func (c *Client) UploadOrUpdateFile(
 	if update {
 		method = http.MethodPut
 	}
-	bodyData := bufio.NewReader(data)
-	req, err := http.NewRequest(method, uploadURL, bodyData)
+	req, err := http.NewRequest(method, uploadURL, data)
 	if err != nil {
 		return FileUploadResponse{}, err
 	}
